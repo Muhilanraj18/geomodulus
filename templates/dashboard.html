@@ -1,0 +1,780 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | GeoModulus AI{% endblock %}
+
+{% block content %}
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+
+<div class="row align-items-center g-5 mb-5">
+
+    <div class="col-lg-7">
+
+        <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+            AI-POWERED SOIL ANALYSIS
+        </span>
+
+        <h1 class="display-4 fw-bold text-dark">
+            GeoModulus AI
+        </h1>
+
+        <h2 class="h3 text-primary mb-3">
+            Soil Elastic Modulus Prediction System
+        </h2>
+
+        <p class="lead text-secondary">
+            A machine-learning-based decision support system for
+            predicting soil elastic modulus using laboratory and
+            field soil parameters.
+        </p>
+
+        <div class="d-flex gap-3 flex-wrap mt-4">
+
+            <a href="/predict" class="btn btn-geo">
+
+                <i class="bi bi-cpu"></i>
+
+                Start Prediction
+
+            </a>
+
+
+            <a href="/about"
+               class="btn btn-outline-secondary px-4 py-2">
+
+                <i class="bi bi-info-circle"></i>
+
+                Learn More
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO CARD -->
+
+    <div class="col-lg-5">
+
+        <div class="geo-card text-center p-5">
+
+            <div class="stat-icon mx-auto mb-4"
+                 style="width:70px;height:70px;font-size:2rem;">
+
+                <i class="bi bi-activity"></i>
+
+            </div>
+
+
+            <h4 class="fw-bold">
+
+                Engineering Decision Support
+
+            </h4>
+
+
+            <p class="text-secondary mb-0">
+
+                Predict multiple soil modulus parameters
+                and generate an engineering-oriented
+                assessment.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PROJECT STATISTICS
+     ========================================================= -->
+
+<div class="row g-4 mb-5">
+
+
+    <!-- DATASET -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-database"></i>
+
+            </div>
+
+
+            <div class="stat-value">
+
+                179
+
+            </div>
+
+
+            <div class="stat-label">
+
+                Dataset Samples
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- INPUT FEATURES -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-diagram-3"></i>
+
+            </div>
+
+
+            <div class="stat-value">
+
+                9
+
+            </div>
+
+
+            <div class="stat-label">
+
+                Input Features
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TARGETS -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-bullseye"></i>
+
+            </div>
+
+
+            <div class="stat-value">
+
+                4
+
+            </div>
+
+
+            <div class="stat-label">
+
+                Prediction Targets
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MODELS -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+
+                <i class="bi bi-cpu"></i>
+
+            </div>
+
+
+            <div class="stat-value">
+
+                4
+
+            </div>
+
+
+            <div class="stat-label">
+
+                Selected ML Models
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODEL PERFORMANCE
+     ========================================================= -->
+
+<div class="mb-4">
+
+    <h2 class="section-title">
+
+        Model Performance
+
+    </h2>
+
+
+    <p class="section-subtitle">
+
+        Best-performing models obtained during model
+        evaluation and hyperparameter tuning.
+
+    </p>
+
+</div>
+
+
+
+<div class="row g-4 mb-5">
+
+
+    <!-- PLT E -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card">
+
+            <div class="prediction-label">
+
+                PLT E
+
+            </div>
+
+
+            <div class="prediction-value">
+
+                76.06%
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Extra Trees • R²
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="small text-secondary">
+
+                RMSE: 22.7392
+
+                <br>
+
+                MAE: 16.8577
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GEOGAUGE E -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card">
+
+            <div class="prediction-label">
+
+                Geogauge E
+
+            </div>
+
+
+            <div class="prediction-value">
+
+                84.71%
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Extra Trees • R²
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="small text-secondary">
+
+                RMSE: 14.2393
+
+                <br>
+
+                MAE: 9.4224
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DCP E -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card">
+
+            <div class="prediction-label">
+
+                DCP E
+
+            </div>
+
+
+            <div class="prediction-value">
+
+                79.48%
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Random Forest • R²
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="small text-secondary">
+
+                RMSE: 14.5668
+
+                <br>
+
+                MAE: 10.7197
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LWD E -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card">
+
+            <div class="prediction-label">
+
+                LWD E
+
+            </div>
+
+
+            <div class="prediction-value">
+
+                85.43%
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Extra Trees • R²
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="small text-secondary">
+
+                RMSE: 13.3746
+
+                <br>
+
+                MAE: 10.4135
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MACHINE LEARNING WORKFLOW
+     ========================================================= -->
+
+<div class="geo-card mb-5">
+
+    <div class="mb-4">
+
+        <h2 class="section-title">
+
+            Machine Learning Workflow
+
+        </h2>
+
+
+        <p class="section-subtitle">
+
+            From soil parameters to engineering decision support.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="row text-center g-4">
+
+
+        <!-- STEP 1 -->
+
+        <div class="col-md-3">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-input-cursor-text"></i>
+
+            </div>
+
+
+            <h6 class="fw-bold">
+
+                01. Input
+
+            </h6>
+
+
+            <p class="small text-secondary">
+
+                Enter soil and field parameters.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 2 -->
+
+        <div class="col-md-3">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-cpu"></i>
+
+            </div>
+
+
+            <h6 class="fw-bold">
+
+                02. ML Prediction
+
+            </h6>
+
+
+            <p class="small text-secondary">
+
+                Trained machine-learning models
+                predict soil modulus values.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 3 -->
+
+        <div class="col-md-3">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-bar-chart"></i>
+
+            </div>
+
+
+            <h6 class="fw-bold">
+
+                03. Analysis
+
+            </h6>
+
+
+            <p class="small text-secondary">
+
+                Multiple predicted modulus parameters
+                are evaluated.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- STEP 4 -->
+
+        <div class="col-md-3">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-check2-circle"></i>
+
+            </div>
+
+
+            <h6 class="fw-bold">
+
+                04. Decision Support
+
+            </h6>
+
+
+            <p class="small text-secondary">
+
+                Generate an engineering-oriented
+                recommendation.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PREDICTION TARGETS
+     ========================================================= -->
+
+<div class="mb-4">
+
+    <h2 class="section-title">
+
+        Prediction Targets
+
+    </h2>
+
+
+    <p class="section-subtitle">
+
+        The system predicts four soil elastic modulus
+        measurements.
+
+    </p>
+
+</div>
+
+
+
+<div class="row g-4 mb-5">
+
+
+    <!-- PLT -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card text-center">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-graph-up"></i>
+
+            </div>
+
+
+            <div class="prediction-label">
+
+                PLT E
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Plate Load Test Elastic Modulus
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GEOGAUGE -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card text-center">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-speedometer2"></i>
+
+            </div>
+
+
+            <div class="prediction-label">
+
+                Geogauge E
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Geogauge Elastic Modulus
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DCP -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card text-center">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-bar-chart"></i>
+
+            </div>
+
+
+            <div class="prediction-label">
+
+                DCP E
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Dynamic Cone Penetrometer Modulus
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LWD -->
+
+    <div class="col-md-6 col-lg-3">
+
+        <div class="prediction-card text-center">
+
+            <div class="stat-icon mx-auto">
+
+                <i class="bi bi-activity"></i>
+
+            </div>
+
+
+            <div class="prediction-label">
+
+                LWD E
+
+            </div>
+
+
+            <div class="prediction-unit">
+
+                Light Weight Deflectometer Modulus
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     FINAL CALL TO ACTION
+     ========================================================= -->
+
+<div class="geo-card text-center p-5 mb-0">
+
+    <h2 class="fw-bold">
+
+        Ready to analyze your soil?
+
+    </h2>
+
+
+    <p class="text-secondary">
+
+        Enter the soil parameters and generate
+        an AI-assisted prediction.
+
+    </p>
+
+
+    <a href="/predict" class="btn btn-geo">
+
+        <i class="bi bi-arrow-right-circle"></i>
+
+        Start Prediction
+
+    </a>
+
+</div>
+
+{% endblock %}

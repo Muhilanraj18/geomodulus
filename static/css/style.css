@@ -1,0 +1,756 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    max-width: 100%;
+
+    background: #f5f8fc;
+
+    color: #172033;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.geo-navbar {
+    width: 100%;
+
+    background: #0d172b;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    position: relative;
+
+    z-index: 1000;
+}
+
+
+.geo-navbar-inner {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 24px;
+
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.geo-brand {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.geo-brand i {
+
+    color: #4f8cff;
+
+    margin-right: 7px;
+}
+
+
+.geo-nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 26px;
+}
+
+
+.geo-nav-links a {
+
+    color: #dbe4f5;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+
+.geo-nav-links a:hover {
+
+    color: #ffffff;
+}
+
+
+.geo-nav-links i {
+
+    margin-right: 5px;
+
+    color: #78a9ff;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.geo-main {
+
+    width: 100%;
+
+    min-height: calc(100vh - 62px);
+
+    padding: 45px 20px 60px;
+}
+
+
+.geo-container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   GENERAL SPACING
+   ========================================================= */
+
+.geo-container > * {
+
+    margin-bottom: 32px;
+}
+
+
+.geo-container > *:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GEO CARD
+   ========================================================= */
+
+.geo-card {
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5f0;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 20px rgba(15, 35, 65, 0.06);
+
+    padding: 28px;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.geo-main .row {
+
+    width: 100%;
+
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.geo-main .row > * {
+
+    min-width: 0;
+}
+
+
+.display-4 {
+
+    letter-spacing: -1px;
+}
+
+
+.lead {
+
+    line-height: 1.7;
+
+    max-width: 700px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-geo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #246bfe;
+
+    color: #ffffff;
+
+    border: 1px solid #246bfe;
+
+    border-radius: 8px;
+
+    padding: 10px 20px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+
+.btn-geo:hover {
+
+    background: #1557d6;
+
+    border-color: #1557d6;
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.stat-card {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5f0;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(15, 35, 65, 0.05);
+
+    transition: all 0.2s ease;
+}
+
+
+.stat-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(15, 35, 65, 0.08);
+}
+
+
+.stat-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eef5ff;
+
+    color: #246bfe;
+
+    font-size: 18px;
+
+    margin-bottom: 14px;
+}
+
+
+.stat-value {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #172033;
+
+    line-height: 1.1;
+}
+
+
+.stat-label {
+
+    margin-top: 6px;
+
+    color: #718096;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.section-title {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #172033;
+}
+
+
+.section-subtitle {
+
+    margin-top: 7px;
+
+    margin-bottom: 0;
+
+    color: #718096;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PREDICTION CARDS
+   ========================================================= */
+
+.prediction-card {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5f0;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(15, 35, 65, 0.05);
+}
+
+
+.prediction-label {
+
+    color: #60708a;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.prediction-value {
+
+    color: #246bfe;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+
+.prediction-unit {
+
+    color: #718096;
+
+    font-size: 12px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   WORKFLOW
+   ========================================================= */
+
+.geo-card .small {
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+table th {
+
+    font-weight: 600;
+}
+
+
+table td,
+table th {
+
+    padding: 10px;
+
+    border: 1px solid #dce5f0;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+
+    transition: 0.2s ease;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.geo-footer {
+
+    width: 100%;
+
+    background: #0d172b;
+
+    color: #aebbd0;
+
+    padding: 22px 20px;
+
+    margin-top: 40px;
+}
+
+
+.geo-footer p {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+.geo-footer span {
+
+    margin: 0 6px;
+
+    color: #4f8cff;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .geo-main {
+
+        padding: 35px 18px 50px;
+    }
+
+
+    .geo-navbar-inner {
+
+        padding: 0 18px;
+    }
+
+
+    .geo-nav-links {
+
+        gap: 16px;
+    }
+
+
+    .geo-card {
+
+        padding: 24px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .geo-navbar-inner {
+
+        min-height: 0;
+
+        padding-top: 14px;
+
+        padding-bottom: 14px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+
+    .geo-nav-links {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .geo-nav-links a {
+
+        font-size: 13px;
+    }
+
+
+    .geo-main {
+
+        padding: 25px 14px 45px;
+    }
+
+
+    .geo-card {
+
+        padding: 20px;
+
+        border-radius: 12px;
+    }
+
+
+    .section-title {
+
+        font-size: 21px;
+    }
+
+
+    .display-4 {
+
+        font-size: 2.3rem;
+    }
+
+
+    .stat-card {
+
+        min-height: 135px;
+
+        padding: 18px;
+    }
+
+
+    .prediction-card {
+
+        min-height: 135px;
+
+        padding: 18px;
+    }
+
+
+    .prediction-value {
+
+        font-size: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .geo-main {
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+
+    .geo-navbar-inner {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+    }
+
+
+    .geo-nav-links {
+
+        gap: 12px;
+    }
+
+
+    .geo-nav-links a {
+
+        font-size: 12px;
+    }
+
+
+    .display-4 {
+
+        font-size: 2rem;
+    }
+
+
+    .geo-card {
+
+        padding: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+   ========================================================= */
+
+img,
+svg,
+canvas,
+video {
+
+    max-width: 100%;
+}
+
+
+.row {
+
+    --bs-gutter-x: 1.5rem;
+
+    max-width: 100%;
+}
+
+
+.container,
+.container-fluid {
+
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .geo-navbar,
+    .geo-footer,
+    .btn,
+    button {
+
+        display: none !important;
+    }
+
+
+    .geo-main {
+
+        padding: 0;
+    }
+
+
+    .geo-card,
+    .stat-card,
+    .prediction-card {
+
+        box-shadow: none;
+
+        break-inside: avoid;
+    }
+
+}

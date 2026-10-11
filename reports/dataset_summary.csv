@@ -1,0 +1,14 @@
+Column,Missing Values,Data Type
+LL,0,float64
+PL,0,float64
+PI,0,float64
+OMC,0,float64
+MDD (g/cc),0,float64
+Depth of reinforcement,0,float64
+Reinforced/Unreinforced,0,int64
+Soaked/Unsoaked,0,int64
+CBR(%),0,float64
+PLT E,116,float64
+Geogauge E,14,float64
+DCP E,65,float64
+LWD E,14,float64

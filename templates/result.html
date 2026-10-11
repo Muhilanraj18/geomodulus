@@ -1,0 +1,866 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Results | GeoModulus AI{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <div class="text-center mb-5">
+
+        <span class="badge bg-success-subtle text-success px-3 py-2 mb-3">
+            ANALYSIS COMPLETED
+        </span>
+
+        <h1 class="section-title">
+            Soil Analysis Results
+        </h1>
+
+        <p class="section-subtitle">
+            AI-generated soil elastic modulus predictions
+            and engineering decision support.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         PREDICTION CARDS
+         ===================================================== -->
+
+    <div class="row g-4 mb-5">
+
+        <!-- PLT E -->
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="geo-card h-100">
+
+                <div class="stat-icon mb-3">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+
+                <small class="text-secondary">
+                    PLT E
+                </small>
+
+                <h2 class="fw-bold mt-1">
+                    {{ prediction["PLT E"] }}
+                </h2>
+
+                <small class="text-secondary">
+                    Elastic Modulus
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- GEOGAUGE E -->
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="geo-card h-100">
+
+                <div class="stat-icon mb-3">
+                    <i class="bi bi-speedometer2"></i>
+                </div>
+
+                <small class="text-secondary">
+                    Geogauge E
+                </small>
+
+                <h2 class="fw-bold mt-1">
+                    {{ prediction["Geogauge E"] }}
+                </h2>
+
+                <small class="text-secondary">
+                    Elastic Modulus
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- DCP E -->
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="geo-card h-100">
+
+                <div class="stat-icon mb-3">
+                    <i class="bi bi-bar-chart"></i>
+                </div>
+
+                <small class="text-secondary">
+                    DCP E
+                </small>
+
+                <h2 class="fw-bold mt-1">
+                    {{ prediction["DCP E"] }}
+                </h2>
+
+                <small class="text-secondary">
+                    Elastic Modulus
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- LWD E -->
+
+        <div class="col-md-6 col-lg-3">
+
+            <div class="geo-card h-100">
+
+                <div class="stat-icon mb-3">
+                    <i class="bi bi-activity"></i>
+                </div>
+
+                <small class="text-secondary">
+                    LWD E
+                </small>
+
+                <h2 class="fw-bold mt-1">
+                    {{ prediction["LWD E"] }}
+                </h2>
+
+                <small class="text-secondary">
+                    Elastic Modulus
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ENGINEERING ASSESSMENT
+         ===================================================== -->
+
+    <div class="geo-card mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="stat-icon me-3">
+                <i class="bi bi-building-check"></i>
+            </div>
+
+            <div>
+
+                <h3 class="fw-bold mb-1">
+                    Engineering Assessment
+                </h3>
+
+                <p class="text-secondary mb-0">
+                    AI-based soil assessment and pavement
+                    recommendation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-3">
+
+
+            <!-- SOIL QUALITY -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        SOIL QUALITY
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Soil Quality"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAVEMENT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        RECOMMENDED PAVEMENT
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Recommended Pavement"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELECTED REINFORCEMENT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        SELECTED REINFORCEMENT
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Selected Reinforcement"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMENDED REINFORCEMENT -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        RECOMMENDED REINFORCEMENT
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Recommended Reinforcement"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERALL RATING -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        OVERALL RATING
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Overall Rating"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+
+            <!-- DECISION -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="border rounded p-3 h-100">
+
+                    <small class="text-secondary d-block mb-2">
+                        ENGINEERING DECISION
+                    </small>
+
+                    <h5 class="fw-bold mb-0">
+                        {{ report["Reinforcement"] }}
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         REINFORCEMENT COMPARISON
+         ===================================================== -->
+
+    <div class="geo-card mb-5">
+
+        <div class="d-flex align-items-center mb-4">
+
+            <div class="stat-icon me-3">
+                <i class="bi bi-layers"></i>
+            </div>
+
+            <div>
+
+                <h3 class="fw-bold mb-1">
+                    Reinforcement Comparison
+                </h3>
+
+                <p class="text-secondary mb-0">
+                    Comparison of predicted soil performance
+                    for all reinforcement conditions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Reinforcement
+                        </th>
+
+                        <th>
+                            PLT E
+                        </th>
+
+                        <th>
+                            Geogauge E
+                        </th>
+
+                        <th>
+                            DCP E
+                        </th>
+
+                        <th>
+                            LWD E
+                        </th>
+
+                        <th>
+                            Average Modulus
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- UNREINFORCED -->
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                Unreinforced
+                            </strong>
+
+                            {% if best_reinforcement == "Unreinforced" %}
+
+                                <span class="badge bg-success ms-2">
+                                    BEST
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["Unreinforced"]["predictions"]["PLT E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["Unreinforced"]["predictions"]["Geogauge E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["Unreinforced"]["predictions"]["DCP E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["Unreinforced"]["predictions"]["LWD E"] }}
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                {{ reinforcement_comparison["Unreinforced"]["average"] }}
+                            </strong>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- 400 GSM -->
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                400 GSM
+                            </strong>
+
+                            {% if best_reinforcement == "400 GSM" %}
+
+                                <span class="badge bg-success ms-2">
+                                    BEST
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["400 GSM"]["predictions"]["PLT E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["400 GSM"]["predictions"]["Geogauge E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["400 GSM"]["predictions"]["DCP E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["400 GSM"]["predictions"]["LWD E"] }}
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                {{ reinforcement_comparison["400 GSM"]["average"] }}
+                            </strong>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- 700 GSM -->
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                700 GSM
+                            </strong>
+
+                            {% if best_reinforcement == "700 GSM" %}
+
+                                <span class="badge bg-success ms-2">
+                                    BEST
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["700 GSM"]["predictions"]["PLT E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["700 GSM"]["predictions"]["Geogauge E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["700 GSM"]["predictions"]["DCP E"] }}
+                        </td>
+
+                        <td>
+                            {{ reinforcement_comparison["700 GSM"]["predictions"]["LWD E"] }}
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                {{ reinforcement_comparison["700 GSM"]["average"] }}
+                            </strong>
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- BEST REINFORCEMENT -->
+
+        <div class="border rounded p-4 mt-4">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-8">
+
+                    <small class="text-secondary d-block mb-2">
+                        AI RECOMMENDED REINFORCEMENT
+                    </small>
+
+                    <h2 class="fw-bold mb-2">
+
+                        {{ best_reinforcement }}
+
+                    </h2>
+
+                    <p class="text-secondary mb-0">
+
+                        This reinforcement condition produced
+                        the highest average predicted modulus
+                        among the three tested conditions.
+
+                    </p>
+
+                </div>
+
+
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+
+                    <small class="text-secondary d-block">
+                        BEST AVERAGE MODULUS
+                    </small>
+
+                    <h2 class="fw-bold">
+
+                        {{ best_average }}
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODULUS COMPARISON CHART
+         ===================================================== -->
+
+    <div class="geo-card mb-5">
+
+        <h3 class="fw-bold mb-1">
+            Selected Soil Modulus
+        </h3>
+
+        <p class="text-secondary mb-4">
+            Predicted elastic modulus for the selected
+            reinforcement condition.
+        </p>
+
+        <div style="height:350px;">
+
+            <canvas id="modulusChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         PREDICTION SUMMARY
+         ===================================================== -->
+
+    <div class="geo-card mb-5">
+
+        <h3 class="fw-bold mb-4">
+            Prediction Summary
+        </h3>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Test Method
+                        </th>
+
+                        <th>
+                            Predicted Elastic Modulus
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            <strong>PLT E</strong>
+                        </td>
+
+                        <td>
+                            {{ prediction["PLT E"] }}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <strong>Geogauge E</strong>
+                        </td>
+
+                        <td>
+                            {{ prediction["Geogauge E"] }}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <strong>DCP E</strong>
+                        </td>
+
+                        <td>
+                            {{ prediction["DCP E"] }}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <strong>LWD E</strong>
+                        </td>
+
+                        <td>
+                            {{ prediction["LWD E"] }}
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FINAL DECISION
+         ===================================================== -->
+
+    <div class="geo-card mb-5">
+
+        <div class="text-center">
+
+            <small class="text-secondary d-block mb-2">
+                FINAL AI DECISION
+            </small>
+
+            <h1 class="fw-bold mb-3">
+                {{ best_reinforcement }}
+            </h1>
+
+            <p class="text-secondary mb-0">
+
+                Based on the comparison of Unreinforced,
+                400 GSM, and 700 GSM conditions, the system
+                identifies <strong>{{ best_reinforcement }}</strong>
+                as the reinforcement condition with the
+                highest predicted average modulus.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         BUTTONS
+         ===================================================== -->
+
+    <div class="text-center mt-4 mb-5">
+
+        <a
+            href="/predict"
+            class="btn btn-primary btn-lg px-4 me-2"
+        >
+
+            <i class="bi bi-arrow-repeat me-2"></i>
+
+            New Prediction
+
+        </a>
+
+
+        <button
+            type="button"
+            class="btn btn-outline-secondary btn-lg px-4"
+            onclick="window.print()"
+        >
+
+            <i class="bi bi-printer me-2"></i>
+
+            Print Report
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CHART.JS
+     ========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const chartElement =
+            document.getElementById(
+                "modulusChart"
+            );
+
+
+        if (!chartElement) {
+
+            return;
+
+        }
+
+
+        const ctx =
+            chartElement.getContext("2d");
+
+
+        new Chart(
+            ctx,
+            {
+
+                type: "bar",
+
+                data: {
+
+                    labels: [
+
+                        "PLT E",
+                        "Geogauge E",
+                        "DCP E",
+                        "LWD E"
+
+                    ],
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Predicted Elastic Modulus",
+
+                            data: [
+
+                                {{ prediction["PLT E"] }},
+
+                                {{ prediction["Geogauge E"] }},
+
+                                {{ prediction["DCP E"] }},
+
+                                {{ prediction["LWD E"] }}
+
+                            ],
+
+                            borderWidth: 1,
+
+                            borderRadius: 6
+
+                        }
+
+                    ]
+
+                },
+
+
+                options: {
+
+                    responsive: true,
+
+                    maintainAspectRatio: false,
+
+                    plugins: {
+
+                        legend: {
+
+                            display: true
+
+                        }
+
+                    },
+
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero: true,
+
+                            title: {
+
+                                display: true,
+
+                                text:
+                                    "Predicted Modulus"
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        );
+
+    }
+
+);
+
+</script>
+
+{% endblock %}

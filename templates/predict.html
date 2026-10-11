@@ -1,0 +1,558 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction | GeoModulus AI{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+            AI SOIL ANALYSIS
+        </span>
+
+        <h1 class="section-title">
+            Soil Elastic Modulus Prediction
+        </h1>
+
+        <p class="section-subtitle">
+            Enter the soil and field parameters to generate
+            AI-based modulus predictions.
+        </p>
+
+    </div>
+
+
+    <!-- SERVER ERROR -->
+    {% if error %}
+
+    <div class="alert alert-danger mb-4">
+
+        <i class="bi bi-exclamation-triangle me-2"></i>
+
+        <strong>Prediction Error:</strong>
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+    <form
+        action="/predict"
+        method="POST"
+        id="predictionForm"
+    >
+
+        <div class="row g-4">
+
+            <!-- ==================================================
+                 SOIL PARAMETERS
+                 ================================================== -->
+
+            <div class="col-lg-8">
+
+                <div class="geo-card">
+
+                    <div class="d-flex align-items-center mb-4">
+
+                        <div class="stat-icon mb-0 me-3">
+
+                            <i class="bi bi-layers"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4 class="mb-1 fw-bold">
+                                Soil Parameters
+                            </h4>
+
+                            <p class="text-secondary mb-0">
+                                Enter the measured soil properties.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row g-4">
+
+
+                        <!-- ==================================================
+                             LIQUID LIMIT
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="LL"
+                                class="form-label"
+                            >
+                                Liquid Limit (LL)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    LL
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="100"
+                                    name="LL"
+                                    id="LL"
+                                    class="form-control"
+                                    placeholder="e.g. 25.00"
+                                    required
+                                >
+
+                            </div>
+
+                            <small class="text-secondary">
+                                Enter a value between 0 and 100.
+                            </small>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             PLASTIC LIMIT
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="PL"
+                                class="form-label"
+                            >
+                                Plastic Limit (PL)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    PL
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="100"
+                                    name="PL"
+                                    id="PL"
+                                    class="form-control"
+                                    placeholder="e.g. 15.00"
+                                    required
+                                >
+
+                            </div>
+
+                            <small class="text-secondary">
+                                PL must not be greater than LL.
+                            </small>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             PI
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="PI"
+                                class="form-label"
+                            >
+                                Plasticity Index (PI)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    PI
+                                </span>
+
+                                <input
+                                    type="text"
+                                    id="PI"
+                                    class="form-control bg-light"
+                                    placeholder="Automatically calculated"
+                                    readonly
+                                >
+
+                            </div>
+
+                            <small class="text-secondary">
+                                PI = LL − PL
+                            </small>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             OMC
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="OMC"
+                                class="form-label"
+                            >
+                                Optimum Moisture Content (OMC)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    %
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="100"
+                                    name="OMC"
+                                    id="OMC"
+                                    class="form-control"
+                                    placeholder="e.g. 14.00"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             MDD
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="MDD"
+                                class="form-label"
+                            >
+                                Maximum Dry Density (MDD)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    g/cc
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0.5"
+                                    max="3.5"
+                                    name="MDD"
+                                    id="MDD"
+                                    class="form-control"
+                                    placeholder="e.g. 1.95"
+                                    required
+                                >
+
+                            </div>
+
+                            <small class="text-secondary">
+                                Expected range: 0.5–3.5 g/cc.
+                            </small>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             CBR
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="CBR"
+                                class="form-label"
+                            >
+                                California Bearing Ratio (CBR)
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    %
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="100"
+                                    name="CBR"
+                                    id="CBR"
+                                    class="form-control"
+                                    placeholder="e.g. 8.00"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ==================================================
+                             DEPTH
+                             ================================================== -->
+
+                        <div class="col-md-6">
+
+                            <label
+                                for="Depth"
+                                class="form-label"
+                            >
+                                Depth of Reinforcement
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+                                    mm
+                                </span>
+
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="2000"
+                                    name="Depth"
+                                    id="Depth"
+                                    class="form-control"
+                                    placeholder="Enter depth"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TEST CONDITIONS
+                 ================================================== -->
+
+            <div class="col-lg-4">
+
+                <div class="geo-card h-100">
+
+                    <div class="d-flex align-items-center mb-4">
+
+                        <div class="stat-icon mb-0 me-3">
+
+                            <i class="bi bi-sliders"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h4 class="mb-1 fw-bold">
+                                Test Conditions
+                            </h4>
+
+                            <p class="text-secondary mb-0">
+                                Select the test conditions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         REINFORCEMENT
+                         ================================================== -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="Reinforcement"
+                            class="form-label"
+                        >
+                            Reinforcement Type
+                        </label>
+
+                        <select
+                            name="Reinforcement"
+                            id="Reinforcement"
+                            class="form-select"
+                            required
+                        >
+
+                            <option value="0">
+                                Unreinforced
+                            </option>
+
+                            <option value="1">
+                                400 GSM
+                            </option>
+
+                            <option value="2">
+                                700 GSM
+                            </option>
+
+                        </select>
+
+                        <small class="text-secondary">
+                            Select the reinforcement condition
+                            used in the soil test.
+                        </small>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         SOAKED CONDITION
+                         ================================================== -->
+
+                    <div class="mb-4">
+
+                        <label
+                            for="Soaked"
+                            class="form-label"
+                        >
+                            Soil Condition
+                        </label>
+
+                        <select
+                            name="Soaked"
+                            id="Soaked"
+                            class="form-select"
+                            required
+                        >
+
+                            <option value="0">
+                                Unsoaked
+                            </option>
+
+                            <option value="1">
+                                Soaked
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         PI INFORMATION
+                         ================================================== -->
+
+                    <div class="alert alert-primary">
+
+                        <div class="d-flex">
+
+                            <i class="bi bi-info-circle me-2"></i>
+
+                            <div>
+
+                                <strong>
+                                    Automatic PI Calculation
+                                </strong>
+
+                                <p class="small mb-0 mt-1">
+                                    PI is automatically calculated
+                                    using LL − PL.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         MODEL INFORMATION
+                         ================================================== -->
+
+                    <div
+                        class="mt-4 p-3 rounded"
+                        style="background:#f8fafc;"
+                    >
+
+                        <small class="text-secondary">
+
+                            <i class="bi bi-cpu me-1"></i>
+
+                            The system evaluates the input using
+                            trained machine-learning models.
+
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             VALIDATION MESSAGE
+             ================================================== -->
+
+        <div
+            id="validationMessage"
+            class="alert alert-danger mt-4 d-none"
+            role="alert"
+        >
+
+            <i class="bi bi-exclamation-triangle me-2"></i>
+
+            <span id="validationText"></span>
+
+        </div>
+
+
+        <!-- ==================================================
+             PREDICTION BUTTON
+             ================================================== -->
+
+        <div class="text-center mt-5">
+
+            <button
+                type="submit"
+                class="btn btn-geo btn-lg px-5"
+                id="predictButton"
+            >
+
+                <i class="bi bi-cpu me-2"></i>
+
+                Run AI Prediction
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

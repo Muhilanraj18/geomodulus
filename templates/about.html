@@ -1,0 +1,569 @@
+{% extends "base.html" %}
+
+{% block title %}About | GeoModulus AI{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HEADER -->
+    <div class="text-center mb-5">
+
+        <span class="badge bg-primary-subtle text-primary px-3 py-2 mb-3">
+            PROJECT INFORMATION
+        </span>
+
+        <h1 class="section-title">
+            About GeoModulus AI
+        </h1>
+
+        <p class="section-subtitle">
+            AI-based soil elastic modulus prediction and
+            engineering decision-support system.
+        </p>
+
+    </div>
+
+
+    <!-- PROJECT OVERVIEW -->
+    <div class="geo-card mb-5">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-8">
+
+                <h2 class="fw-bold mb-3">
+                    Project Overview
+                </h2>
+
+                <p>
+                    GeoModulus AI is a machine-learning-based system
+                    designed to predict soil elastic modulus values
+                    from laboratory and field soil parameters.
+                </p>
+
+                <p>
+                    The system analyzes soil characteristics such as
+                    Liquid Limit, Plastic Limit, Plasticity Index,
+                    Optimum Moisture Content, Maximum Dry Density,
+                    CBR, reinforcement condition and soaking condition.
+                </p>
+
+                <p class="mb-0">
+                    The predicted modulus values are then used to
+                    generate an engineering-oriented assessment for
+                    decision support.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+
+                <div class="stat-icon mx-auto"
+                     style="width:90px;height:90px;font-size:2.5rem;">
+
+                    <i class="bi bi-globe2"></i>
+
+                </div>
+
+                <h4 class="fw-bold mt-3">
+                    GeoModulus AI
+                </h4>
+
+                <p class="text-secondary">
+                    Intelligent Geotechnical Analysis
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DATASET -->
+    <div class="mb-5">
+
+        <div class="mb-4">
+
+            <h2 class="section-title">
+                Dataset Information
+            </h2>
+
+            <p class="section-subtitle">
+                Dataset characteristics used during model development.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <div class="stat-value">
+                        179
+                    </div>
+
+                    <div class="stat-label">
+                        Total Samples
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-input-cursor"></i>
+                    </div>
+
+                    <div class="stat-value">
+                        9
+                    </div>
+
+                    <div class="stat-label">
+                        Prediction Input Features
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <div class="stat-value">
+                        4
+                    </div>
+
+                    <div class="stat-label">
+                        Prediction Targets
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INPUT FEATURES -->
+    <div class="geo-card mb-5">
+
+        <h2 class="fw-bold mb-4">
+            Input Parameters
+        </h2>
+
+        <div class="row g-3">
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>LL</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Liquid Limit
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>PL</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Plastic Limit
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>PI</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Plasticity Index
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>OMC</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Optimum Moisture Content
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>MDD</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Maximum Dry Density
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>CBR</strong>
+                    <br>
+                    <small class="text-secondary">
+                        California Bearing Ratio
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>Depth</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Depth of Reinforcement
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>Reinforcement</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Reinforced / Unreinforced
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="border rounded-3 p-3">
+                    <strong>Soaked Condition</strong>
+                    <br>
+                    <small class="text-secondary">
+                        Soaked / Unsoaked
+                    </small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TARGETS -->
+    <div class="mb-5">
+
+        <div class="mb-4">
+
+            <h2 class="section-title">
+                Prediction Targets
+            </h2>
+
+            <p class="section-subtitle">
+                The system generates four modulus predictions.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+
+                    <div class="prediction-label">
+                        PLT E
+                    </div>
+
+                    <div class="prediction-unit">
+                        Plate Load Test Elastic Modulus
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
+
+                    <div class="prediction-label">
+                        Geogauge E
+                    </div>
+
+                    <div class="prediction-unit">
+                        Geogauge Elastic Modulus
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-bar-chart"></i>
+                    </div>
+
+                    <div class="prediction-label">
+                        DCP E
+                    </div>
+
+                    <div class="prediction-unit">
+                        Dynamic Cone Penetrometer Modulus
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card">
+
+                    <div class="stat-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+
+                    <div class="prediction-label">
+                        LWD E
+                    </div>
+
+                    <div class="prediction-unit">
+                        Light Weight Deflectometer Modulus
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODEL PERFORMANCE -->
+    <div class="geo-card mb-5">
+
+        <div class="mb-4">
+
+            <h2 class="fw-bold">
+                Model Performance
+            </h2>
+
+            <p class="text-secondary">
+                Best-performing models selected during model comparison
+                and hyperparameter tuning.
+            </p>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table align-middle">
+
+                <thead>
+
+                    <tr>
+                        <th>Target</th>
+                        <th>Selected Model</th>
+                        <th>R²</th>
+                        <th>RMSE</th>
+                        <th>MAE</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td><strong>PLT E</strong></td>
+                        <td>Extra Trees</td>
+                        <td>0.7638</td>
+                        <td>22.5876</td>
+                        <td>16.2959</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Geogauge E</strong></td>
+                        <td>Extra Trees</td>
+                        <td>0.8580</td>
+                        <td>13.7203</td>
+                        <td>8.5431</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>DCP E</strong></td>
+                        <td>XGBoost</td>
+                        <td>0.7835</td>
+                        <td>14.9641</td>
+                        <td>10.6782</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>LWD E</strong></td>
+                        <td>CatBoost</td>
+                        <td>0.8426</td>
+                        <td>13.9014</td>
+                        <td>10.9715</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- ALGORITHMS -->
+    <div class="mb-5">
+
+        <div class="mb-4">
+
+            <h2 class="section-title">
+                Machine Learning Models
+            </h2>
+
+            <p class="section-subtitle">
+                Multiple regression algorithms were evaluated during
+                model selection.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card h-100">
+
+                    <h5 class="fw-bold">
+                        Random Forest
+                    </h5>
+
+                    <p class="text-secondary small mb-0">
+                        Ensemble regression using multiple
+                        decision trees.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card h-100">
+
+                    <h5 class="fw-bold">
+                        Extra Trees
+                    </h5>
+
+                    <p class="text-secondary small mb-0">
+                        Extremely randomized tree ensemble
+                        used for regression.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card h-100">
+
+                    <h5 class="fw-bold">
+                        XGBoost
+                    </h5>
+
+                    <p class="text-secondary small mb-0">
+                        Gradient boosting algorithm for
+                        high-performance regression.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="prediction-card h-100">
+
+                    <h5 class="fw-bold">
+                        CatBoost
+                    </h5>
+
+                    <p class="text-secondary small mb-0">
+                        Gradient boosting framework evaluated
+                        during model comparison.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CTA -->
+    <div class="geo-card text-center p-5">
+
+        <h2 class="fw-bold">
+            Ready to analyze a soil sample?
+        </h2>
+
+        <p class="text-secondary">
+            Use the trained models to generate a new prediction.
+        </p>
+
+        <a href="/predict" class="btn btn-geo">
+
+            <i class="bi bi-cpu"></i>
+
+            Start Prediction
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
